@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="untitled:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/untitled_jar</output-path>
+    <root id="archive" name="untitled.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="untitled" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/github/toolfactory/jvm-driver/9.4.2/jvm-driver-9.4.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/burningwave/jvm-driver/8.10.1/jvm-driver-8.10.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/burningwave/core/12.62.0/core-12.62.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.example</groupId>
+  <artifactId>untitled</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>untitled</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>16</maven.compiler.source>
+    <maven.compiler.target>16</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.burningwave</groupId>
+      <artifactId>core</artifactId>
+      <version>12.62.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.github.dingxin</groupId>
+        <artifactId>proguard-maven-plugin</artifactId>
+        <version>1.0.3</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>proguard</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <options>
+            <option>-dontoptimize</option>
+            <option>-keepattributes *Annotation*</option>
+            <option>-keepattributes Signature</option>
+            <option>-keepattributes InnerClasses</option>
+            <option>-keepclassmembers class * { @**.* *; }</option>
+            <option>-keep public class * { public protected *; }</option>
+            <option>-dontwarn org.apache.logging.log4j.**</option>
+          </options>
+          <libs>
+            <lib>${java.home}/jmods/java.base.jmod(!**.jar;!module-info.class)</lib>
+          </libs>
+          <dependencyFilter>!module-info.class,!META-INF/**</dependencyFilter>
+          <outFilter>!META-INF/maven/**</outFilter>
+          <inFilter>!module-info.class,!META-INF/maven/**</inFilter>
+          <includeDependency>true</includeDependency>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
